@@ -1,0 +1,16 @@
+stages:
+  - test
+  - build
+Job_1:
+  stage: build
+  tags:
+    - shared
+  artifacts:
+    paths:
+      - logs.txt
+  script:
+    - echo START BUILD!!!
+    - ls -la
+    - hostname
+    - pwd
+    - python main.py
