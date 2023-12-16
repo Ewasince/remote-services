@@ -11,10 +11,10 @@ services:
       - '443:443'
       - '80:80'
       - '22:22'
-    volumes:
-      - /config:/etc/gitlab
-      - /logs:/var/log/gitlab
-      - /data:/var/opt/gitlab
+#    volumes:
+#      - /config:/etc/gitlab
+#      - /logs:/var/log/gitlab
+#      - /data:/var/opt/gitlab
     restart: on-failure
     networks:
       gitlab_network:
@@ -25,7 +25,7 @@ services:
     container_name: gitlab-runner
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /srv/gitlab-runner/config:/etc/gitlab-runner
+      - $PWD/runner-config:/etc/gitlab-runner
     restart: on-failure
     networks:
       gitlab_network:
