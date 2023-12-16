@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  python-app:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    environment:
+      FACTORIAL_NUMBER: ${FACTORIAL_NUMBER}
+    command: [ "poetry", "run", "python", "main.py" ]
