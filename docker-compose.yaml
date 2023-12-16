@@ -25,6 +25,7 @@ services:
     container_name: gitlab-runner
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker-cli.sock:/var/run/docker-cli.sock
       - $PWD/runner-config:/etc/gitlab-runner
     restart: on-failure
     networks:
