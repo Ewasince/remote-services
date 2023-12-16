@@ -7,7 +7,6 @@ logging.basicConfig(
     level=logging.INFO
 )
 
-
 def factorial(n: int):
     return n if n == 1 else n * factorial(n - 1)
 
