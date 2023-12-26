@@ -1,9 +1,9 @@
 FROM python
 
+RUN mkdir -p /app
 WORKDIR app
 
-COPY main.py /app
-COPY pyproject.toml /app
+COPY . /app
 
 RUN pip install poetry
-RUN poetry install
+RUN poetry update

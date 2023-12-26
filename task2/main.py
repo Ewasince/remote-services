@@ -1,16 +1,13 @@
-import logging
 import os
+import time
+import requests
 
-logging.basicConfig(
-    filename='logs.txt',
-    format='%(levelname)s:\t%(message)s',
-    level=logging.INFO
-)
+number = os.getenv("CHECK_STR", 1)
+print(f"{number=}")
+time.sleep(5)
+res = float(requests.get(f"http://course_api:5000/course/{number}").text)
+result = f"{number} это {'число' if res else 'не число!'}"
+print(result)
 
-def factorial(n: int):
-    return n if n == 1 else n * factorial(n - 1)
-
-
-number = int(os.getenv("FACTORIAL_NUMBER", 1))
-result = factorial(number)
-logging.info(f"{result=}")
+with open('result/result.txt', 'w+') as f:
+    f.write(str(result))
