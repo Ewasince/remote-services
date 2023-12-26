@@ -7,6 +7,8 @@ set -x
 clone_repos=("task1 task2")
 tmp_dir="tmp"
 
+mkdir -p $tmp_dir
+
 for d in $clone_repos
 do
   rep_dir=$d/$tmp_dir
