@@ -14,6 +14,12 @@ logging.basicConfig(
 def password(len_):
     return ''.join(random.choices(chars, k=len_))
 
+def coverage(n):
+    return n
+
+def no_coverage(n):
+    return n
+
 
 length = int(os.getenv("PASS_LEN", 5))
 result = password(length)

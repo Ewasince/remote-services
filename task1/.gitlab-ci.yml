@@ -1,6 +1,25 @@
 stages:
   - test
   - build
+
+Test:
+  stage: test
+  tags:
+    - python
+  artifacts:
+    reports:
+      junit: junit.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage.xml
+  before_script:
+    - export PYTHONPATH=`pwd`
+    - pip install -r requirements.txt
+  script:
+    - pytest --cov=myprj --cov-report=xml --junitxml=junit.xml
+  coverage: '/coverage: \d+.\d+% of statements/'
+#  coverage: '/^TOTAL.*\s(\d+\%)$/'
+
 Job_1:
   stage: build
   tags:
@@ -13,4 +32,4 @@ Job_1:
     - ls -la
     - hostname
     - pwd
-    - python main.py
+    - python myprj/main.py
