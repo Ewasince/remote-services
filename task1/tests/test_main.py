@@ -1,5 +1,4 @@
-from myprj import main
-from myprj import kek
+from myprj import main, kek, lol
 
 def test_main():
     def test_pass(n):
@@ -15,9 +14,17 @@ def test_coverage():
     test_pass(10)
     test_pass(20)
 
-def test_power():
+def test_kek():
     def test_pass(n):
         assert kek.test_func(n) == n ** 2
+
+    test_pass(2)
+    test_pass(10)
+    test_pass(20)
+
+def test_lol():
+    def test_pass(n):
+        assert lol.test_func(n) == n ** 3
 
     test_pass(2)
     test_pass(10)
