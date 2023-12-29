@@ -16,16 +16,8 @@ Test:
     - export PYTHONPATH=`pwd`
     - pip install -r requirements.txt
   script:
-#    - coverage run -m pytest
-#    - coverage report
-#    - coverage xml
-#    - pytest --junitxml=junit.xml
-#    - pytest --cov=myprj --cov-report=xml --junitxml=junit.xml
     - pytest --cov --cov-report term-missing --cov-report xml:./coverage.xml --junitxml=./junit.xml
   coverage: '/TOTAL.*\s+(\d+%)$/'
-#  coverage: /(?i)total.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/
-#  coverage: '/coverage: \d+.\d+% of statements/'
-#  coverage: '/^TOTAL.*\s(\d+\%)$/'
 
 Job_1:
   stage: build
