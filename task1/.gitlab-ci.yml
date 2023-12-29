@@ -9,6 +9,7 @@ Test:
   artifacts:
     reports:
       junit: junit.xml
+      cyclonedx: cyclonedx.json
       coverage_report:
         coverage_format: cobertura
         path: coverage.xml
@@ -17,6 +18,7 @@ Test:
     - pip install -r requirements.txt
   script:
     - pytest --cov --cov-report term-missing --cov-report xml:./coverage.xml --junitxml=./junit.xml
+    - python -m cyclonedx_py -r --format json
   coverage: '/TOTAL.*\s+(\d+%)$/'
 
 Job_1:
@@ -32,3 +34,9 @@ Job_1:
     - hostname
     - pwd
     - python myprj/main.py
+
+include:
+  - template: Security/Dependency-Scanning.gitlab-ci.yml
+#  - template: Auto-DevOps.gitlab-ci.yml
+#sast:
+#  stage: test
