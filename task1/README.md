@@ -1,4 +1,3 @@
-
 [![coverage report](http://gitlab-service/root/task1/badges/main/coverage.svg)](http://gitlab-service/root/task1/-/commits/main)
 
 ## Лавренов В.И БСБО-04-20
